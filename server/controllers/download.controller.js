@@ -21,4 +21,3 @@ export function createDownloadController(service = downloadService) {
     } catch (error) { sendDownloadError(res, error); }
   };
 }
-export const downloadController = { downloadMedia: createDownloadController() };

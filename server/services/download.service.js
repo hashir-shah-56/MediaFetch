@@ -121,4 +121,4 @@ export function createDownloadService({ config = env, tempBase = TEMP_BASE, run 
 }
 export const downloadService = createDownloadService();
 export const initDownloadService = downloadService.initialize;
-export const activeDownloads = downloadService.activeDownloads;
+
