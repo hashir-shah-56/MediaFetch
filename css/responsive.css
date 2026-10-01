@@ -1,0 +1,52 @@
+@media (max-width: 1024px) {
+  .header-inner { min-height: 76px; }
+  nav { gap: var(--space-5); }
+  .hero { padding-top: var(--space-16); }
+  .section-heading { align-items: start; }
+  .faq-section { gap: var(--space-8); }
+  .footer-top { flex-wrap: wrap; }
+  .footer-bottom { flex-wrap: wrap; }
+}
+@media (max-width: 767px) {
+  .container { width: calc(100% - 40px); }
+  .header-inner { flex-wrap: wrap; gap: 0; padding-block: var(--space-3); }
+  .menu-toggle:not([hidden]) { display: inline-flex; }
+  #primary-nav { flex-basis: 100%; flex-direction: column; align-items: stretch; gap: 0; padding-block: var(--space-3); }
+  #primary-nav a { padding: var(--space-2) var(--space-3); border-radius: var(--radius-sm); }
+  #primary-nav a:hover { background: var(--surface); }
+  .hero { padding-block: var(--space-12); }
+  .preview-badge { max-width: 330px; border-radius: var(--radius-md); }
+  .badge-divider { display: none; }
+  h1 { font-size: clamp(2.75rem, 8vw, 4rem); }
+  .hero-copy { font-size: 1rem; }
+  .analyzer { padding: var(--space-6); }
+  .input-actions { flex-direction: column; }
+  .button.primary { min-height: 52px; }
+  .panel-footer { flex-direction: column; align-items: start; gap: var(--space-2); }
+  .section { padding-block: var(--space-12); }
+  .section-heading { flex-direction: column; gap: var(--space-4); margin-bottom: var(--space-8); }
+  .steps, .platform-grid, .principle-grid, .faq-section { grid-template-columns: minmax(0, 1fr); }
+  .steps { gap: var(--space-6); }
+  .step-number { margin-bottom: var(--space-3); }
+  .platform-card { padding: var(--space-6); }
+  .capabilities { min-height: 0; }
+  .principles { margin-top: var(--space-12); padding: var(--space-6); }
+  .principle-grid { gap: var(--space-6); }
+  .footer-top nav { flex-wrap: wrap; gap: var(--space-2) var(--space-5); }
+  .footer-bottom { flex-direction: column; gap: var(--space-3); }
+}
+@media (max-width: 430px) {
+  .container { width: calc(100% - 32px); }
+  .analyzer { padding: var(--space-4); }
+  .panel-heading { align-items: start; gap: var(--space-2); }
+  .phase-label { text-align: right; max-width: 106px; }
+  .input-shell { flex-wrap: wrap; gap: var(--space-2); }
+  .input-shell input { flex: 1; width: auto; font-size: 1rem; }
+  .paste-button { flex-basis: 100%; }
+  .platform-indicator { gap: var(--space-2) var(--space-4); }
+  .platform-indicator > span:first-child { flex-basis: 100%; }
+  .hero-copy br { display: none; }
+  .platform-card-top { flex-wrap: wrap; }
+  .principles-title { align-items: start; }
+  .principles { padding: var(--space-5); }
+}

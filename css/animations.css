@@ -1,0 +1,7 @@
+.site-header, .button, .paste-button, .platform-card, .input-shell, nav a { transition: background-color var(--transition), border-color var(--transition), box-shadow var(--transition), color var(--transition); }
+.faq-item button > span { transition: transform var(--transition); }
+.toast { animation: toast-enter var(--transition-slow) both; }
+.spinner { animation: spin 800ms linear infinite; }
+@keyframes toast-enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
