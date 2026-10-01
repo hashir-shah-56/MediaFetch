@@ -1,0 +1,31 @@
+{
+  "name": "mediafetch",
+  "version": "0.5.1",
+  "description": "Social Media Link Analyzer and Platform Detection",
+  "main": "server/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node --watch server/server.js",
+    "test": "node tests/parser.mjs && node tests/api.test.mjs && node tests/download.test.mjs && node --test tests/download-lifecycle.test.mjs",
+    "test:api": "node tests/api.test.mjs",
+    "test:parser": "node tests/parser.mjs",
+    "test:download": "node tests/download.test.mjs",
+    "test:download:lifecycle": "node --test tests/download-lifecycle.test.mjs"
+  },
+  "keywords": [
+    "mediafetch",
+    "url-parser",
+    "youtube",
+    "instagram",
+    "express",
+    "analyzer"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}

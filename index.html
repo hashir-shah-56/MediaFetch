@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Analyze Instagram and YouTube links with MediaFetch. View available media information and use platform-specific actions for content you are authorized to access.">
+  <meta name="theme-color" content="#0b0e18">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MediaFetch — Social Media Link Analyzer">
+  <meta property="og:description"
+    content="Explore media information and authorized-content actions for supported Instagram and YouTube links.">
+  <title>MediaFetch — Social Media Link Analyzer</title>
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="MediaFetch home"><img src="assets/icons/favicon.svg" width="34"
+          height="34" alt="">Media<span>Fetch</span></a>
+      <button class="menu-toggle button secondary" id="menu-toggle" type="button" aria-expanded="false"
+        aria-controls="primary-nav" hidden>Menu <span aria-hidden="true">☰</span></button>
+      <nav id="primary-nav" aria-label="Main navigation"><a href="#home">Home</a><a href="#how-it-works">How It
+          Works</a><a href="#platforms">Supported Platforms</a><a href="#faq">FAQ</a></nav>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+    <section class="hero container" id="home" aria-labelledby="hero-title">
+      <div class="preview-badge"><span aria-hidden="true">◇</span> A simpler way to work with media <span
+          class="badge-divider">/</span> <strong>Media tools</strong></div>
+      <h1 id="hero-title">Your Media.<br><span>One Link Away.</span></h1>
+      <p class="hero-copy">One place for your Instagram and YouTube links.<br> Explore available media information and actions.</p>
+      <div class="hero-platforms" aria-label="Recognized platforms"><span><span class="instagram-icon"
+            aria-hidden="true">◎</span> Instagram</span><span class="separator" aria-hidden="true"></span><span><span
+            class="youtube-icon" aria-hidden="true">▷</span> YouTube</span></div>
+      <div class="analyzer" id="analyzer" data-state="empty">
+        <div class="panel-heading"><span class="eyebrow">START WITH A LINK</span><span class="phase-label">Phase 05
+            <span aria-hidden="true">/</span> YouTube metadata</span></div>
+        <form id="url-form" novalidate>
+          <label for="media-url">Your media URL</label>
+          <div class="input-actions">
+            <div class="input-shell"><span class="link-icon" aria-hidden="true">↗</span><input id="media-url" name="url"
+                type="url" inputmode="url" placeholder="Paste a YouTube or Instagram URL..." autocomplete="off"
+                spellcheck="false" maxlength="2048" aria-describedby="url-feedback phase-note"><button
+                class="paste-button" id="paste-button" type="button" disabled>Paste</button></div>
+            <button class="button primary" id="analyze-button" type="submit" disabled><span class="spinner"
+                aria-hidden="true" hidden></span><span id="analyze-label">Analyze Media</span><span
+                aria-hidden="true">↗</span></button>
+          </div>
+          <p class="input-feedback" id="url-feedback" aria-live="polite" aria-atomic="true">Paste an Instagram or YouTube media link. https:// is optional.</p>
+          <p class="detected-platform" id="detected-platform" role="status" hidden></p>
+        </form>
+        <div class="panel-footer">
+          <div class="platform-indicator" aria-label="Supported platforms for URL recognition">
+            <span>Supported platforms</span><span data-platform="instagram">○ Instagram</span><span data-platform="youtube">○ YouTube</span></div><span
+            class="local-note">Checked in your browser</span>
+        </div>
+        <div class="result" id="result" role="status" hidden><span class="result-symbol" aria-hidden="true">i</span>
+          <div>
+            <h2 id="result-title">URL verified</h2>
+            <p>URL verified. Media retrieval will be available after backend integration. No media has been retrieved. Existence and access have not been checked.</p>
+            <dl><dt>Media identifier</dt><dd id="result-id"></dd><dt>Normalized URL</dt><dd id="result-url"></dd></dl>
+          </div>
+        </div>
+      </div>
+      <p class="phase-note" id="phase-note"><span aria-hidden="true">ⓘ</span> Availability depends on the content and configured providers. Only save content you own or have permission to use.</p>
+      <noscript>
+        <p class="noscript-note">JavaScript is required for URL checks and clipboard access. You can still explore the
+          information below.</p>
+      </noscript>
+    </section>
+    <section class="section container" id="how-it-works" aria-labelledby="how-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">THE WORKFLOW</p>
+          <h2 id="how-title">One link. A clear next step.</h2>
+        </div>
+        <p>Start with a supported link.<br>Available actions depend on the platform and content.</p>
+      </div>
+      <div class="steps">
+        <article class="step"><span class="step-number">01 <span aria-hidden="true">↗</span></span>
+          <h3>Paste Link</h3>
+          <p>Paste an Instagram or YouTube media URL. The app checks its structure locally.</p>
+        </article>
+        <article class="step"><span class="step-number">02 <span aria-hidden="true">⌕</span></span>
+          <h3>Analyze</h3>
+          <p>MediaFetch identifies the platform, content type and media identifier from the URL.</p>
+        </article>
+        <article class="step"><span class="step-number">03 <span aria-hidden="true">☷</span></span>
+          <h3>Available Actions</h3>
+          <p>Use the actions made available for that platform and content, once integrations are connected.</p>
+        </article>
+      </div>
+    </section>
+    <section class="section platform-section" id="platforms" aria-labelledby="platform-title">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">TWO PLATFORMS. ONE PLACE.</p>
+            <h2 id="platform-title">Starting with your favorites.</h2>
+          </div>
+          <p>Media information through configured providers.<br>Actions depend on the platform and content.</p>
+        </div>
+        <div class="platform-grid">
+          <article class="platform-card">
+            <div class="platform-card-top"><span class="platform-logo instagram-icon" aria-hidden="true">◎</span><span
+                class="support-badge">Initial Support <span>· URL recognition</span></span></div>
+            <h3>Instagram</h3>
+            <p>A clearer view of the content you share.</p>
+            <ul class="capabilities">
+              <li>Posts</li>
+              <li>Reels</li>
+              <li>Video URLs</li>
+              <li>Media metadata</li>
+            </ul>
+            <p class="card-note">Media and metadata use the configured Instagram provider. Private-content access is not supported.</p>
+          </article>
+          <article class="platform-card">
+            <div class="platform-card-top"><span class="platform-logo youtube-icon" aria-hidden="true">▷</span><span
+                class="support-badge">Initial Support <span>· URL recognition</span></span></div>
+            <h3>YouTube</h3>
+            <p>Useful context, with a path to the original.</p>
+            <ul class="capabilities">
+              <li>URL recognition</li>
+              <li>Video metadata</li>
+              <li>Thumbnail</li>
+              <li>Original-video navigation</li>
+            </ul>
+            <p class="card-note">Metadata uses the YouTube Data API. Authorized MP4 downloads are a separate workflow, subject to availability.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="container principles" aria-labelledby="principles-title">
+      <div class="principles-title"><span class="principles-icon" aria-hidden="true">◇</span>
+        <div>
+          <p class="eyebrow">BUILT WITH INTENTION</p>
+          <h2 id="principles-title">Your links. Handled thoughtfully.</h2>
+        </div>
+      </div>
+      <div class="principle-grid">
+        <div>
+          <h3>Temporary files only</h3>
+          <p>Download jobs use temporary server files, removed after processing and streaming. The app does not save URL history.</p>
+        </div>
+        <div>
+          <h3>Only what's needed</h3>
+          <p>URLs are checked locally and revalidated by the backend. Providers receive the information needed for the requested action.</p>
+        </div>
+        <div>
+          <h3>Respect the original</h3>
+          <p>Only save or download content you own or are authorized to use.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section container faq-section" id="faq" aria-labelledby="faq-title">
+      <div class="faq-intro">
+        <p class="eyebrow">GOOD TO KNOW</p>
+        <h2 id="faq-title">A little more clarity.</h2>
+        <p>The essentials about MediaFetch<br>and where we're headed.</p>
+      </div>
+      <div class="faq-list">
+        <article class="faq-item">
+          <h3><button type="button" id="faq-q1" aria-expanded="true" aria-controls="faq-a1">What is MediaFetch?<span
+                aria-hidden="true">+</span></button></h3>
+          <div class="faq-answer" id="faq-a1" aria-labelledby="faq-q1">
+            <p>MediaFetch analyzes Instagram and YouTube media links through configured providers. YouTube metadata and authorized-content video downloads use separate services.</p>
+          </div>
+        </article>
+        <article class="faq-item">
+          <h3><button type="button" id="faq-q2" aria-expanded="true" aria-controls="faq-a2">Which platforms are
+              supported?<span aria-hidden="true">+</span></button></h3>
+          <div class="faq-answer" id="faq-a2" aria-labelledby="faq-q2">
+            <p>Instagram post, reel and video URLs, plus YouTube video and Shorts URLs, are recognized. Profiles, stories, channels and playlist-only pages are not supported. Recognition does not confirm media existence or access.</p>
+          </div>
+        </article>
+        <article class="faq-item">
+          <h3><button type="button" id="faq-q3" aria-expanded="true" aria-controls="faq-a3">Does MediaFetch store my
+              media?<span aria-hidden="true">+</span></button></h3>
+          <div class="faq-answer" id="faq-a3" aria-labelledby="faq-q3">
+            <p>The backend temporarily stores files while preparing authorized downloads and removes them after streaming or failure. Startup cleanup handles stale jobs left by a crash. URLs and identifiers are sent to the configured services only as needed; ordinary host/provider logs may still apply.</p>
+          </div>
+        </article>
+        <article class="faq-item">
+          <h3><button type="button" id="faq-q4" aria-expanded="true" aria-controls="faq-a4">Can I use private Instagram
+              links?<span aria-hidden="true">+</span></button></h3>
+          <div class="faq-answer" id="faq-a4" aria-labelledby="faq-q4">
+            <p>No. Private Instagram content is not supported. MediaFetch does not bypass sign-in requirements, privacy
+              settings, or platform access controls.</p>
+          </div>
+        </article>
+        <article class="faq-item">
+          <h3><button type="button" id="faq-q5" aria-expanded="true" aria-controls="faq-a5">Why are available actions
+              different between platforms?<span aria-hidden="true">+</span></button></h3>
+          <div class="faq-answer" id="faq-a5" aria-labelledby="faq-q5">
+            <p>Each platform has different capabilities and access rules. Instagram actions depend on the provider response. YouTube offers metadata and a separate authorized MP4 workflow; a recognized URL does not guarantee a downloadable format.</p>
+          </div>
+        </article>
+        <article class="faq-item">
+          <h3><button type="button" id="faq-q6" aria-expanded="true" aria-controls="faq-a6">Is MediaFetch free?<span
+                aria-hidden="true">+</span></button></h3>
+          <div class="faq-answer" id="faq-a6" aria-labelledby="faq-q6">
+            <p>This frontend preview is free to use and requires no account. Pricing for any future service has not been
+              decided.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div><a class="brand" href="#home"><img src="assets/icons/favicon.svg" width="30" height="30"
+              alt="">Media<span>Fetch</span></a>
+          <p>A thoughtful start for every media link.</p>
+        </div>
+        <nav aria-label="Footer navigation"><a href="#home">Home</a><a href="#how-it-works">How It Works</a><a
+            href="#platforms">Supported Platforms</a><a href="#faq">FAQ</a></nav>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="year">2026</span> MediaFetch</p>
+        <p>Only download or save media you own or have permission to use.</p><span>Authorized Download · v0.5.1</span>
+      </div>
+    </div>
+  </footer>
+  <div class="toast-region" id="toast-region" role="region" aria-label="Notifications">
+    <div id="toast-announcer" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+  </div>
+</body>
+
+</html>
